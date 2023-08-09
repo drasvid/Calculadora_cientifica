@@ -1,0 +1,150 @@
+
+:root{
+
+    --fondo: #322757;
+    --sombra:#1a0857;
+    --primario:#7946a5;
+    --secundario: #403760;
+    --botones:#a95bd9; 
+    --hover:#825ca1;
+
+}
+
+html{
+
+    font-size: 62.5%;
+    box-sizing: border-box; /* hack para box model*/
+ 
+}
+/* Fondo */
+
+
+body{
+
+
+    background-color: var(--fondo);
+    
+
+}
+
+.contenedor{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.calculadora{
+
+    background-color: var(--primario);
+    border-radius: 2rem;
+    box-shadow: 3px 2px 2px 1px var(--sombra);
+    padding:.5rem;
+}
+
+.keys{
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: .5rem;
+
+}
+
+.cuatro{
+
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+}
+
+.cero{
+
+    grid-column: 2/3;
+    
+}
+
+.limpiar{
+
+    grid-row: 4/5;
+
+}
+
+.suma{
+
+    grid-column: 4/5;
+    grid-row: 1/2;
+
+}
+
+.resta{
+
+    grid-column:4/5;
+    grid-row:2/3;
+
+}
+
+.multiplicacion{
+
+    grid-column: 4/5;
+    grid-row: 3/4;
+
+}
+
+.division{
+
+    grid-column: 4/5;
+    grid-row: 4/5;
+
+}
+
+
+.save{
+
+    margin-top: 1rem;
+}
+
+.mostrar{
+
+    background-color: var(--secundario);
+    border-radius: 2rem;
+    margin:.5rem ;
+
+}
+
+.display,
+.save{
+
+    display: flex;
+    font-size: 2rem;
+    padding: 2rem;
+    color:  #e5daec
+    ;
+
+}
+
+button{
+
+    padding: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color:var(--botones);
+    border:0;
+
+}
+
+button:hover{
+
+    background-color:var(--hover);
+
+}
+
+.saved,
+.add,
+.saved_p{
+
+    margin: 0;
+}
