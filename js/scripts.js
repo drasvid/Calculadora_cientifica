@@ -4,6 +4,9 @@ const igual= document.querySelector('.ejecutar');
 const ac=document.querySelector('.limpiar');
 const funciones=document.querySelectorAll('.especial');
 
+const dic_funciones=['Sin','Cos','Tan'];
+
+
 const saved=document.querySelector('.display .saved');
 const add=document.querySelector('.display .add');
 
@@ -45,6 +48,17 @@ ac.addEventListener('click',e=>{
 
     done.textContent='';
     saved.textContent='';
+
+
+})
+
+funciones.forEach(funcion=>{
+
+    funcion.addEventListener('click', func=>{
+
+        const dation=funcion.getAttribute('data-action');
+
+    })
 
 
 })
@@ -137,4 +151,17 @@ function imp_resultado(resultado){
     });
 
 
-}
+};
+
+prueba(dic_funciones)
+
+function prueba(dic_funciones){
+
+    dic_funciones.forEach(stage => {
+
+
+        console.log( stage );
+        
+    });
+
+};
