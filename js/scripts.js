@@ -2,6 +2,7 @@ const numeros= document.querySelectorAll('.boton');
 const operadores= document.querySelectorAll('.operador');
 const igual= document.querySelector('.ejecutar');
 const ac=document.querySelector('.limpiar');
+const funciones=document.querySelectorAll('.especial');
 
 const saved=document.querySelector('.display .saved');
 const add=document.querySelector('.display .add');
