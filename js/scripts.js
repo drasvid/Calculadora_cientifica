@@ -15,6 +15,8 @@ const done=document.querySelector('.saved_p');
 var operacion='';
 var resultado='';
 
+var valor_funcion='';
+
 
 
 
@@ -25,6 +27,7 @@ numeros.forEach(key => {
         const numero=key.innerHTML;
 
         añadir(numero);
+
 
     })
 
@@ -58,43 +61,75 @@ funciones.forEach(funcion=>{
 
         const dation=funcion.getAttribute('data-action');
 
+        añadir('',dation)
+
     })
 
 
 })
 
 
-
-
-
 function añadir(numero, dation) {
 
 
-
-    add.textContent=numero;
-
-    saved.textContent=saved.textContent+add.textContent;
-
-    add.textContent='';
+    dic_funciones.forEach(funcion=>{
 
 
-    if(dation!==undefined){
+        if (dation===funcion){
 
-        done.textContent=saved.textContent;
+            valor_funcion=dation;
+        }    
 
-        saved.textContent='';
+      })
 
-    }
+      if(numero==='.' && saved.textContent.includes('.')) return
 
-    calcular(done.textContent, saved.textContent,dation)
+
+
+      if (valor_funcion!==''){
+
+        done.textContent=valor_funcion;
+
+        add.textContent=numero;
+
+        saved.textContent=saved.textContent+add.textContent;
+    
+        add.textContent='';
+
+        calcular_funciones(saved.textContent,valor_funcion);
+
+
+
+      }else{
+
+        add.textContent=numero;
+
+        saved.textContent=saved.textContent+add.textContent;
+    
+        add.textContent='';
+    
+    
+        if(dation!==undefined){
+    
+            done.textContent=saved.textContent;
+    
+            saved.textContent='';
+    
+        }
+
+    
+        calcular(done.textContent, saved.textContent,dation);
+
+      }
+      
 
 };
 
 
 function calcular(done,saved,dation){
 
-    const done_int=parseInt(done);
-    const saved_int=parseInt(saved);
+    const done_int=parseFloat(done);
+    const saved_int=parseFloat(saved);
 
 
     if(dation!==undefined){
@@ -132,36 +167,60 @@ function calcular(done,saved,dation){
 
     imp_resultado(resultado);
     
-
-
 };
+
+
+function calcular_funciones(saved,dation){
+
+    const saved_int=parseInt(saved);
+    const base_operativa=Math.PI/180;
+    var saved_rad=saved_int*base_operativa;
+
+
+    if (dation==='Sin'){
+
+        var resultado_pre=Math.sin(saved_rad);
+
+        var resultado=Number(resultado_pre.toFixed(2));
+
+    }
+
+    if(dation==='Cos'){
+        
+        var resultado_pre=Math.cos(saved_rad);
+
+        var resultado=Number(resultado_pre.toFixed(2));
+        
+
+    }
+
+    if(dation==='Tan'){
+        
+        var resultado=Math.tan(saved_rad);
+
+        var resultado=Number(resultado_pre.toFixed(2));
+
+
+    }
+
+    imp_resultado(resultado);
+
+}
 
 
 function imp_resultado(resultado){
 
     igual.addEventListener('click',e=>{
 
-        console.log( resultado );
-
         saved.textContent=resultado;
 
         done.textContent='';
 
+        valor_funcion='';
+
 
     });
 
 
 };
 
-prueba(dic_funciones)
-
-function prueba(dic_funciones){
-
-    dic_funciones.forEach(stage => {
-
-
-        console.log( stage );
-        
-    });
-
-};
