@@ -30,7 +30,6 @@ numeros.forEach(key => {
 
 
     })
-
 });
 
 operadores.forEach(operador => {
@@ -51,9 +50,11 @@ ac.addEventListener('click',e=>{
 
     done.textContent='';
     saved.textContent='';
+    valor_funcion='';
 
 
-})
+
+});
 
 funciones.forEach(funcion=>{
 
@@ -66,7 +67,8 @@ funciones.forEach(funcion=>{
     })
 
 
-})
+});
+
 
 
 function añadir(numero, dation) {
